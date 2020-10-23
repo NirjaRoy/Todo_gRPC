@@ -1,0 +1,39 @@
+syntax = "proto3";
+option java_package = "com.Stubs.Task";
+
+service task{
+  rpc createTask(createTaskRequest)  returns (createTaskResponse);
+  rpc findAllTask(Empty) returns (taskDetails);
+  rpc findTasksByStatus(searchTaskRequest)  returns (searchTaskResponse);
+  rpc deleteTask(deleteTaskRequest) returns (createTaskResponse);
+}
+
+message createTaskRequest{
+   taskDetails task = 1;
+}
+
+message createTaskResponse{
+  string responseMessage = 1;
+  string taskName = 2;
+  string info = 3;
+}
+
+message searchTaskRequest{
+  string status = 1;
+}
+
+message searchTaskResponse{
+  repeated taskDetails task = 1;
+}
+
+message taskDetails{
+  string taskName = 1 ;
+  string status = 2 ;
+}
+
+message deleteTaskRequest{
+  string taskName = 1 ;
+}
+
+message Empty{
+}
