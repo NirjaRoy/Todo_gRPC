@@ -9,7 +9,7 @@ service task{
 }
 
 message createTaskRequest{
-   taskDetails task = 1;
+  taskDetails task = 1;
 }
 
 message createTaskResponse{
